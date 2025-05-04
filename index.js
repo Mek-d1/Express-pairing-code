@@ -14,6 +14,17 @@ import sendsession from 'txt-fyi-api';
 import { createServer } from 'http';
 import { WebSocketServer } from 'ws';
 import fs from 'fs';
+// Enhanced logging setup
+const logger = pino({
+  level: 'info',
+  transport: {
+    target: 'pino-pretty',
+    options: {
+      colorize: true,
+      timestamp: true,
+    },
+  },
+});
 
 
 const app = express();
